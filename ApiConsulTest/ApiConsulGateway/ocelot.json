@@ -1,0 +1,24 @@
+﻿{
+  "Routes": [
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "ServiceName": "ApiConsulTestMyService",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "UpstreamPathTemplate": "/{url}",
+      "UpstreamHttpMethod": [ "Get", "Options", "Post", "Delete", "Put", "Patch" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "ServiceName": "ApiConsulTestMyService",
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": 8500,
+      "Type": "Consul",
+      "PollingInterval": 100
+    }
+  }
+}  

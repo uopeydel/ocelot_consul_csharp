@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/08/2020 11:43:48" ReportInfo.Modified="06/08/2020 14:30:10" ReportInfo.CreatorVersion="2020.1.0.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    /*
+    private void Table1xxx_ManualBuild(object sender, EventArgs e)      
+    {                         
+      // get the data source by its name  
+      DataSourceBase rowData = Report.GetDataSource(&quot;TablePage&quot;);        
+      // initialize it    
+      rowData.Init();   
+      // printing the table header     
+      Table1xxx.PrintRow(0);    
+      Table1xxx.PrintColumns();   
+      // loop through the data source rows     
+      while (rowData.HasMoreRows)  
+      {              
+        // printing the table row    
+        Table1xxx.PrintRow(1);  
+        Table1xxx.PrintColumns();   
+        Table1xxx.PrintRow(1);  
+        Table1xxx.PrintColumns(); 
+        // select the next data row    
+        rowData.Next();  
+      }       
+
+      // printing the table footer  
+      //Table1.PrintRow(2);  
+      //Table1.PrintColumns();
+
+    }
+          */
+ 
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqM7gJFg/iaLrqMhRfGy5lGklJp426q2lyJeXbbI8A4/eaOkiZrdHiKeTUGLqC+NJ6wq/Y4kyKxMNzsSyveWNsSdEHrte6rC56xLUDqIWC1D8Fo3ZCzFGSLTfNmhxBPUL6jRYyIkdLWtFPoKGB/jsbx+gfW1hAq6vSOi1+MYLjpVpxzmlUOsPp3OKq5b3GOkSadbmf7eh8Ttoz+vFy2L57aKVMyzd+R9ELtHwwMDKfaJ8=">
+      <TableDataSource Name="User" DataType="System.Int32" Enabled="true" TableName="User">
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="LastName" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="TablePage" DataType="System.Int32" Enabled="true" TableName="TablePage" SelectCommand="SELECT T.Id, T.Amount, T.Name&#13;&#10;FROM &quot;TablePage&quot; T&#13;&#10;">
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="Amount" DataType="System.Decimal"/>
+        <Column Name="Name" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="Parameter" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="28.35">
+      <TextObject Name="Text2" Left="292.95" Width="94.5" Height="18.9" Text="TiTle" Font="Arial, 10pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="32.35" Width="718.2" Height="94.5">
+      <TextObject Name="Text1" Left="311.85" Top="28.35" Width="245.7" Height="18.9" Text="Header ทดสอบ" Font="Consolas, 12pt"/>
+      <TextObject Name="Text7" Left="236.25" Top="75.6" Width="236.25" Height="18.9" Border.Lines="All" Text="Amount" Font="Consolas, 12pt"/>
+      <TextObject Name="Text5" Top="75.6" Width="236.25" Height="18.9" Border.Lines="All" Text="Id" Font="Consolas, 12pt"/>
+      <TextObject Name="Text9" Left="472.5" Top="75.6" Width="236.25" Height="18.9" Border.Lines="All" Text="Name" Font="Consolas, 12pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="130.85" Width="718.2" Height="56.7" DataSource="TablePage">
+      <TextObject Name="Text4" Width="236.25" Height="56.7" Border.Lines="All" Text="[TablePage.Id]" Font="Consolas, 20.25pt"/>
+      <TextObject Name="Text6" Left="236.25" Width="236.25" Height="56.7" Border.Lines="All" Text="[TablePage.Amount]" Format="Currency" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" WordWrap="false" Font="Consolas, 20.25pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text8" Left="472.5" Width="236.25" Height="56.7" Border.Lines="All" Text="[TablePage.Name]" Font="Consolas, 20.25pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="191.55" Width="718.2" Height="47.25">
+      <TextObject Name="Text3" Left="463.05" Top="18.9" Width="245.7" Height="18.9" Text="PageNumber  [Page#]  / [TotalPages#]" Font="Arial, 10pt"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="Page2" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle2" Width="718.2" Height="37.8">
+      <TextObject Name="Text10" Left="292.95" Top="18.9" Width="94.5" Height="18.9" Text="header 2" Font="Arial, 10pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader2" Top="41.8" Width="718.2" Height="160.65">
+      <TextObject Name="Text11" Left="302.4" Top="18.9" Width="94.5" Height="18.9" Text="master title2 " Font="Arial, 10pt"/>
+      <TextObject Name="Text13" Left="56.7" Top="141.75" Width="179.55" Height="18.9" Border.Lines="Right, Top, Bottom" Border.LeftLine.Color="Gold" Border.TopLine.Color="Gold" Border.RightLine.Color="Gold" Border.BottomLine.Color="Gold" Border.BottomLine.Style="DashDot" Text="Id" Font="Arial, 10pt"/>
+      <TextObject Name="Text15" Left="415.8" Top="141.75" Width="179.55" Height="18.9" Border.Lines="Right, Top, Bottom" Border.LeftLine.Color="Gold" Border.TopLine.Color="Gold" Border.RightLine.Color="Gold" Border.BottomLine.Color="Gold" Border.BottomLine.Style="DashDot" Text="Amount" Font="Arial, 10pt"/>
+      <TextObject Name="Text17" Left="236.25" Top="141.75" Width="179.55" Height="18.9" Border.Lines="Right, Top, Bottom" Border.LeftLine.Color="Gold" Border.TopLine.Color="Gold" Border.RightLine.Color="Gold" Border.BottomLine.Color="Gold" Border.BottomLine.Style="DashDot" Text="Name" Font="Arial, 10pt"/>
+      <HtmlObject Name="Html1" Left="425.25" Top="75.6" Width="94.5" Height="18.9" Text="&lt;b&gt; xxx &lt;/b&gt;"/>
+    </PageHeaderBand>
+    <DataBand Name="Data2" Top="206.45" Width="718.2" Height="75.6" DataSource="TablePage">
+      <TextObject Name="Text12" Left="56.7" Width="179.55" Height="56.7" Border.Lines="All" Text="[TablePage.Id]" Font="Arial, 10pt"/>
+      <TextObject Name="Text14" Left="415.8" Width="179.55" Height="56.7" Border.Lines="All" Text="[TablePage.Amount]" Format="Currency" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" WordWrap="false" Font="Arial, 10pt" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text16" Left="236.25" Width="179.55" Height="56.7" Border.Lines="All" Text="[TablePage.Name]" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter2" Top="286.05" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

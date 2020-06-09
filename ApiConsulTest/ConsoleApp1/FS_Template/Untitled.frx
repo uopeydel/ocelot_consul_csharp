@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="06/04/2020 14:00:34" ReportInfo.Modified="06/08/2020 11:43:48" ReportInfo.CreatorVersion="2020.1.0.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    
+  }
+  
+  
+  
+}
+</ScriptText>
+  <Styles Name="Gray">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Fill.Color="Gainsboro" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data" Font="Arial, 10pt"/>
+    <Style Name="Footer" Fill.Color="Gainsboro" Font="Arial, 10pt"/>
+    <Style Name="EvenRows" Fill.Color="WhiteSmoke" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="ConnectionFRTEST" ConnectionString="rijcmlqM7gJFg/iaLrqMhRfGy5lGklJp426q2lyJeXbbI8A4/eaOkiZrdHiKeTUGLqC+NJ6wq/Y4kyKxMNzsSyveWNsSdEHrte6rC56xLUDqIWC1D8Fo3ZCzFGSLTfNmhxBPUL6jRYyIkdLWtFPoKGB/jsbx+gfW1hAq6vSOi1+MYLjpVpxzmlUOsPp3OKq5b3GOkSadbmf7eh8Ttoz+vFy2L57aIlrF/puAiFSUo4FDlnr9/k=">
+      <TableDataSource Name="User" DataType="System.Int32" Enabled="true" TableName="User">
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="LastName" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="Table" Alias="TableUser" DataType="System.Int32" Enabled="true" SelectCommand="SELECT U.Id, U.Name, U.LastName&#13;&#10;FROM &quot;User&quot; U Where  U.Name = @prm_name">
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="LastName" DataType="System.String"/>
+        <CommandParameter Name="prm_name" DataType="12" Size="50" Expression="[prm_name]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="Header" DataType="System.String"/>
+    <Parameter Name="prm_name" DataType="System.String"/>
+    <Parameter Name="imageUrl" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text1" Width="718.2" Height="37.8" Dock="Fill" Text=" Report Header [Header]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold" Style="Title"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="28.35">
+      <TextObject Name="Text3" Width="359.1" Height="18.9" Fill.Color="Gainsboro" Text="first Name" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text5" Left="359.1" Width="359.1" Height="18.9" Fill.Color="Gainsboro" Text="last Name" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <ChildBand Name="Child1" Top="74.15" Width="718.2" Height="37.8"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="115.95" Width="718.2" Height="292.95" EvenStyle="EvenRows" DataSource="User">
+      <PictureObject Name="Picture2XXX" Left="37.8" Top="179.55" Width="75.6" Height="75.6" Hyperlink.Expression="[imageUrl]" Hyperlink.OpenLinkInNewTab="true" Image=""/>
+      <TextObject Name="Text2" Top="28.35" Width="94.5" Height="18.9" Text="[TableUser.Name]" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="170.1" Top="28.35" Width="94.5" Height="18.9" Text="[TableUser.LastName]" Font="Arial, 10pt"/>
+      <TextObject Name="Text7" Left="321.3" Top="28.35" Width="94.5" Height="18.9" Text="[TableUser.Id]" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="412.9" Width="718.2" Height="170.1">
+      <TextObject Name="Text8" Width="718.2" Height="170.1" Dock="Fill" Fill.Color="Gainsboro" Text=" " HorzAlign="Right" Font="Arial, 10pt" Style="Footer"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

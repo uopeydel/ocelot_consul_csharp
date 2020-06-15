@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiConsulTest2", "ApiConsul
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiConsulGateway", "ApiConsulGateway\ApiConsulGateway.csproj", "{4FCA004D-BE14-4F22-B9F7-A5C8A84A0D2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{8C7A5B41-B496-4615-BDA0-B566BA023EBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{8C7A5B41-B496-4615-BDA0-B566BA023EBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstCodeDb", "FirstCodeDb\FirstCodeDb.csproj", "{153642BD-568A-48CF-B16A-F78970EB2CA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8C7A5B41-B496-4615-BDA0-B566BA023EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C7A5B41-B496-4615-BDA0-B566BA023EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C7A5B41-B496-4615-BDA0-B566BA023EBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{153642BD-568A-48CF-B16A-F78970EB2CA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{153642BD-568A-48CF-B16A-F78970EB2CA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{153642BD-568A-48CF-B16A-F78970EB2CA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{153642BD-568A-48CF-B16A-F78970EB2CA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

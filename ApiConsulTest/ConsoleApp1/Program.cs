@@ -105,7 +105,10 @@ namespace ConsoleApp1
         {
             try
             {
-                ManyPage();
+               var receied =  Encrypt.EncryptConvertJavaToCSharp(Encrypt.privateKey , Encrypt.tokenKey);
+                Console.WriteLine(receied);
+                //return;
+                //ManyPage();
                 //Test();
             }
             catch (Exception ex)

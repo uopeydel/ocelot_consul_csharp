@@ -107,6 +107,9 @@ namespace ConsoleApp1
             {
                var receied =  Encrypt.EncryptConvertJavaToCSharp(Encrypt.privateKey , Encrypt.tokenKey);
                 Console.WriteLine(receied);
+
+                var receiedDecrypt = Encrypt.Decrypt( receied , Encrypt.privateKey);
+
                 //return;
                 //ManyPage();
                 //Test();

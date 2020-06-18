@@ -8,6 +8,23 @@ namespace ConsoleApp1
 {
     public static class Encrypt
     {
+
+        public static string Decrypt(string encodedText, string key)
+        {
+            TripleDESCryptoServiceProvider desCryptoProvider = new TripleDESCryptoServiceProvider();
+            byte[] byteHash;
+            byte[] byteBuff;
+
+            byteHash = Encoding.UTF8.GetBytes(key);
+            desCryptoProvider.Key = byteHash;
+            desCryptoProvider.Padding = PaddingMode.PKCS7;
+            desCryptoProvider.Mode = CipherMode.ECB;
+            byteBuff = Convert.FromBase64String(encodedText);
+
+            string plaintext = Encoding.UTF8.GetString(desCryptoProvider.CreateDecryptor().TransformFinalBlock(byteBuff, 0, byteBuff.Length));
+            return plaintext;
+        }
+
         public static string privateKey = "nOtnyYDW2GNPt2020DhipaYa";
         public static string tokenKey = "94sJdS9gDM5bJAdnjgzwHlFH";
         /// <summary>
@@ -42,7 +59,7 @@ namespace ConsoleApp1
             return result;
         }
     }
-     
+
     /*
 
         private static String privateKey = "nOtnyYDW2GNPt2020DhipaYa";

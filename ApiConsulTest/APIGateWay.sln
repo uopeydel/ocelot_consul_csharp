@@ -17,7 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffTest", "DiffTest\DiffTe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoveMouseCursor", "MoveMouseCursor\MoveMouseCursor.csproj", "{C9BB9381-6EC0-41B1-BCFA-2B6FC9BE5B27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackGroundService", "BackGroundService\BackGroundService.csproj", "{F43E5C94-B766-4C8B-8469-D2134AB2C2C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackGroundService", "BackGroundService\BackGroundService.csproj", "{F43E5C94-B766-4C8B-8469-D2134AB2C2C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SenderKueue", "SenderKueue\SenderKueue.csproj", "{FC570575-F25B-4F10-8307-FC02868D8569}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReceiverKueue", "ReceiverKueue\ReceiverKueue.csproj", "{C9A1B563-1268-44BD-9761-5E86B127A4D1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FINDFIELD", "FINDFIELD\FINDFIELD.csproj", "{8572F1C6-9915-4C81-8C63-46DA0F4B0772}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +63,18 @@ Global
 		{F43E5C94-B766-4C8B-8469-D2134AB2C2C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F43E5C94-B766-4C8B-8469-D2134AB2C2C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F43E5C94-B766-4C8B-8469-D2134AB2C2C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC570575-F25B-4F10-8307-FC02868D8569}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC570575-F25B-4F10-8307-FC02868D8569}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC570575-F25B-4F10-8307-FC02868D8569}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC570575-F25B-4F10-8307-FC02868D8569}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9A1B563-1268-44BD-9761-5E86B127A4D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9A1B563-1268-44BD-9761-5E86B127A4D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9A1B563-1268-44BD-9761-5E86B127A4D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9A1B563-1268-44BD-9761-5E86B127A4D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8572F1C6-9915-4C81-8C63-46DA0F4B0772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8572F1C6-9915-4C81-8C63-46DA0F4B0772}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8572F1C6-9915-4C81-8C63-46DA0F4B0772}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8572F1C6-9915-4C81-8C63-46DA0F4B0772}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

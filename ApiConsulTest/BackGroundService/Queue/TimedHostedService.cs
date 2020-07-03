@@ -25,14 +25,14 @@ namespace BackGroundService.Queue
         public Task StartAsync(CancellationToken stoppingToken)
         {
             _logger.LogInformation("Timed Hosted Service running.");
-            var data = "aaa";
+             
             try
             {
                 ConnectionFactory connectionFactory = new ConnectionFactory();
                 connectionFactory.UserName = ConnectionFactory.DefaultUser;
                 connectionFactory.Password = ConnectionFactory.DefaultPass;
                 connectionFactory.VirtualHost = "/";
-                connectionFactory.HostName = "172.17.53.225"; //IPv4 Address.
+                connectionFactory.HostName = "172.17.173.209"; //IPv4 Address.
                 connectionFactory.Port = AmqpTcpEndpoint.UseDefaultPort;
                 IConnection conn = connectionFactory.CreateConnection();
 
@@ -69,7 +69,7 @@ namespace BackGroundService.Queue
             var count = Interlocked.Increment(ref executionCount);
            
 
-            string body = $"A nice random message: {DateTime.Now.Ticks}  Message sent { count} ";
+            string body = $"A nice random message: {DateTime.Now.ToString("yyyy MM dd _ HH mm ss")}  Message sent { count} ";
             channel.BasicPublish(
                 exchange: string.Empty,
                 routingKey: queueName,
@@ -79,10 +79,10 @@ namespace BackGroundService.Queue
             Console.WriteLine(body);
             if (executionCount == 4)
             {
-                Console.WriteLine("DISPOSED");
-                rabbitConnection.Dispose();
-                channel.Dispose();
-                Dispose();
+                //Console.WriteLine("DISPOSED");
+                //rabbitConnection.Dispose();
+                //channel.Dispose();
+                //Dispose();
             }
         }
         public Task StopAsync(CancellationToken stoppingToken)

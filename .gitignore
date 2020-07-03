@@ -15,3 +15,8 @@ ApiConsulTest/DiffTest/obj/
 ApiConsulTest/DiffTest/bin/
 ApiConsulTest/BackGroundService/obj/
 ApiConsulTest/BackGroundService/bin/
+ApiConsulTest/SenderKueue/obj/
+ApiConsulTest/SenderKueue/bin/
+ApiConsulTest/ReceiverKueue/obj/
+ApiConsulTest/ReceiverKueue/bin/
+ApiConsulTest/FINDFIELD/bin/

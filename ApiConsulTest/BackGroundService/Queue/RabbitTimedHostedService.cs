@@ -34,10 +34,10 @@ namespace BackGroundService.Queue
             var count = Interlocked.Increment(ref executionCount);
             if (executionCount == 14)
             {
-                Console.WriteLine("DISPOSED");
-                rabbitConnection.Dispose();
-                channel.Dispose();
-                Dispose();
+                //Console.WriteLine("DISPOSED");
+                //rabbitConnection.Dispose();
+                //channel.Dispose();
+                //Dispose();
             }
 
             string body = $"A nice random message: {DateTime.Now.Ticks}  Message sent { count} ";
@@ -53,7 +53,7 @@ namespace BackGroundService.Queue
 
         private void RunRabbitQueue()
         {
-            const string queueName = "testqueue";
+            const string queueName = "testqueue2";
 
             try
             {
@@ -62,13 +62,23 @@ namespace BackGroundService.Queue
                 connectionFactory.UserName = ConnectionFactory.DefaultUser;
                 connectionFactory.Password = ConnectionFactory.DefaultPass;
                 connectionFactory.VirtualHost = "/";
-                connectionFactory.HostName = "172.17.53.225"; //IPv4 Address.
+                connectionFactory.HostName = "172.17.173.209"; //IPv4 Address.
                 connectionFactory.Port = AmqpTcpEndpoint.UseDefaultPort;
-                IConnection conn = connectionFactory.CreateConnection();
 
+                Console.WriteLine("CreateConnection");
+
+                //IConnection conn = connectionFactory.CreateConnection();
+
+                Console.WriteLine("connectionFactory CreateConnection");
 
                 var rabbitConnection = connectionFactory.CreateConnection();
+
+                Console.WriteLine("CreateModel");
+
                 var channel = rabbitConnection.CreateModel();
+
+                Console.WriteLine("QueueDeclare");
+
                 channel.QueueDeclare(
                   queue: queueName,
                   durable: false,

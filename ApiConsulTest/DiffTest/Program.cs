@@ -17,10 +17,13 @@ namespace DiffTest
             data2 = data2.Replace(@"\""", @"""");
 
             var diffs = dmp.diff_main(data1 , data2  );
-            Console.WriteLine(string.Join("", diffs.Select(s => s.text).ToArray()));
+            //Console.WriteLine(string.Join("", diffs.Select(s => s.text).ToArray()));
 
+            Console.WriteLine(data1);
+            Console.WriteLine("</br> </br> </br> --- </br> </br> </br>");
+            Console.WriteLine(data2);
             Console.WriteLine();
-            Console.WriteLine();
+            Console.WriteLine("</br> </br> </br> --- </br> </br> </br>");
             Console.WriteLine();
             var html = dmp.diff_prettyHtml_Modified(diffs);
             Console.WriteLine(html);

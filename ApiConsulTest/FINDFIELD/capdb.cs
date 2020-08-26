@@ -19,7 +19,7 @@ namespace NTE.DbContextENCRYPT
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("");
+                optionsBuilder.UseSqlServer("Password=jun@2020;Persist Security Info=True;User ID=CAPUser;Initial Catalog=CAPDB_CORP;Data Source=103.91.189.212;Connect Timeout=30");
             }
         }
 

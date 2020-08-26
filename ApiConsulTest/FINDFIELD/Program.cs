@@ -11,7 +11,7 @@ namespace FINDFIELD
     {
         static void Main(string[] args)
         {
-            var tableName = "usp_CalAppSkill";
+            var tableName = "CBMSAPP012";
 
             Console.WriteLine($"Table Name {tableName}");
 
@@ -43,6 +43,8 @@ namespace FINDFIELD
 
                 declareLines.ForEach(declareLine =>
                 {
+                    #region hide
+
                     declareLine = declareLine.TrimStart();
                     declareLine = declareLine.ToLower();
                     declareLine = declareLine.Replace("\t", " ");
@@ -92,22 +94,10 @@ namespace FINDFIELD
                     //    });
 
                     //}
-                  
+
+                    #endregion
                     var aliasName = new List<string> {
-                         varNameOfTable + ".fstNamEN",
-                         varNameOfTable + ".surNamTH",
-                         varNameOfTable + ".fstNamEN",
-                         varNameOfTable + ".surNamEN",
-
-                         varNameOfTable + ".mFstNamEN",
-                         varNameOfTable + ".mFstNamTH",
-                         varNameOfTable + ".mSurNamEN",
-                         varNameOfTable + ".mSurNamTH",
-
-                          varNameOfTable + ".ref01fstNamTH",
-                         varNameOfTable + ".ref01surNamTH",
-                         varNameOfTable + ".ref02fstNamTH",
-                         varNameOfTable + ".ref02surNamTH"
+                         varNameOfTable + ".payAmt", 
                     };
                       //aliasName = new List<string> {"update" };
                     //var aliasName = new List<string> { varNameOfTable + ".brnCde", varNameOfTable + ".accTypCde" };

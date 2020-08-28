@@ -3,7 +3,7 @@ app = app
     .factory('MyService', function () {
 
         // private
-        var value = 0;
+        let value = 0;
 
         // public
         return {
@@ -15,7 +15,6 @@ app = app
             setValue: function (val) {
                 value = val;
             }
-
         };
     });
 
@@ -23,7 +22,7 @@ app = app
     .factory('MyService2', function () {
 
         // private
-        var value = 0;
+        let value = 0;
 
         // public
         return {
@@ -39,10 +38,20 @@ app = app
         };
     });
 
-app = app.service('SomeService', function () {
-    this.someFunction = function () { console.log("some function 1 is debug");};
+app = app.service('SomeService', function ($http) {
+    this.someFunction = function () {
+        $http.get('api/values').then(function (data) {
+            console.log("data response 1 => ", data);
+        });
+        console.log("some function 1 is debug");
+    };
 });
 
-app = app.service('SomeService1', function () {
-    this.someFunction = function () { console.log("some function 2 is debug");};
+app = app.service('SomeService1', function ($http) {
+    this.someFunction = function () {
+        $http.get('api/values').then(function (data) {
+            console.log("data response 2 => ", data);
+        });
+        console.log("some function 2 is debug");
+    };
 });

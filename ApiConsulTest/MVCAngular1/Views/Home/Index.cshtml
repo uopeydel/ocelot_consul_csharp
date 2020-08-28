@@ -49,44 +49,28 @@
 
 
 </div>
+<script src="~/js/Services/MyService.js" asp-append-version="true"></script>
 <script>
-    var app = angular.module('myApp', []) 
-        .factory('MyService', function () {
 
-            // private
-            var value = 0;
-
-            // public
-            return {
-
-                getValue: function () {
-                    return value;
-                },
-
-                setValue: function (val) {
-                    value = val;
-                }
-
-            };
-        });
-
-    app.controller("personController", function ($scope, $http, MyService) {
+    app.controller("personController", function ($scope, $http, MyService2, MyService, SomeService) {
         $scope.yourName = "xxx";
         //$http.get('data/data.json').then(function (prd) {
         //    $scope.prd = prd.data;
         //});
         $scope.myFunction = function () {
-            MyService.setValue($scope.yourName);
+            SomeService.someFunction();
+            MyService2.setValue($scope.yourName);
         };
     });
 
-    app.controller("itemController", function ($scope, $http, MyService) {
+    app.controller("itemController", function ($scope, $http, MyService2, MyService, SomeService1) {
         $scope.yourName = "xxx";
         //$http.get('data/data.json').then(function (prd) {
         //    $scope.prd = prd.data;
         //});
         $scope.myFunction = function () {
-            $scope.yourName = MyService.getValue();
+            SomeService1.someFunction();
+            $scope.yourName = MyService2.getValue();
         };
     });
 

@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@*<button class="btn btn-primary" onclick="post()" name="button">Send Verification Phone Code</button>*@
+
+<br />
+<br />
+<div>
+    <div>
+
+        <div class="text-center" ng-controller="personController">
+            <h1 class="display-4">Welcome</h1>
+            <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+            <div>
+                <label>Name:</label>
+                <input type="text" ng-model="yourName" placeholder="Enter a name here">
+                <hr>
+                <h1>Send {{yourName}}!</h1>
+            </div>
+
+            <button ng-click="myFunction()">clears</button>
+
+
+
+        </div>
+
+        <div class="text-center" ng-controller="itemController">
+            <h1 class="display-4">Welcome</h1>
+            <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+            <div>
+                <label>Name:</label>
+                <input type="text" ng-model="yourName" placeholder="Enter a name here">
+                <hr>
+                <h1>Received {{yourName}}!</h1>
+            </div>
+
+            <button ng-click="myFunction()">clears</button>
+
+
+
+        </div>
+    </div>
+
+
+
+
+</div>
+<script>
+    var app = angular.module('myApp', []) 
+        .factory('MyService', function () {
+
+            // private
+            var value = 0;
+
+            // public
+            return {
+
+                getValue: function () {
+                    return value;
+                },
+
+                setValue: function (val) {
+                    value = val;
+                }
+
+            };
+        });
+
+    app.controller("personController", function ($scope, $http, MyService) {
+        $scope.yourName = "xxx";
+        //$http.get('data/data.json').then(function (prd) {
+        //    $scope.prd = prd.data;
+        //});
+        $scope.myFunction = function () {
+            MyService.setValue($scope.yourName);
+        };
+    });
+
+    app.controller("itemController", function ($scope, $http, MyService) {
+        $scope.yourName = "xxx";
+        //$http.get('data/data.json').then(function (prd) {
+        //    $scope.prd = prd.data;
+        //});
+        $scope.myFunction = function () {
+            $scope.yourName = MyService.getValue();
+        };
+    });
+
+@*
+    console.log("test")
+    function post() {
+        $.ajax({
+            type: "POST",
+            url: "/ABC/SendPhoneVerificationCode",
+            success: function (data) {
+                window.location.href = "/ABC/ConfirmPhoneNumber"
+            }
+        })
+    }*@
+
+</script> 

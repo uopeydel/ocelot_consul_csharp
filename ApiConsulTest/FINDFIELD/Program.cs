@@ -11,7 +11,7 @@ namespace FINDFIELD
     {
         static void Main(string[] args)
         {
-            var tableName = "CBMSAPP012";
+            var tableName = "CBTBCLL030";
 
             Console.WriteLine($"Table Name {tableName}");
 
@@ -97,7 +97,7 @@ namespace FINDFIELD
 
                     #endregion
                     var aliasName = new List<string> {
-                         varNameOfTable + ".payAmt", 
+                         varNameOfTable + ".cbsCde", 
                     };
                       //aliasName = new List<string> {"update" };
                     //var aliasName = new List<string> { varNameOfTable + ".brnCde", varNameOfTable + ".accTypCde" };

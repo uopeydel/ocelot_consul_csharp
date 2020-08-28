@@ -10,6 +10,10 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/angular.min.js" asp-append-version="true"></script>
+    <script>
+        var app = angular.module('myApp', []);
+    </script>
+    <script src="~/js/Services/MyService.js" asp-append-version="true"></script>
     @*<script src="~/js/angular.min.js.map" asp-append-version="true"></script>*@
     @RenderSection("Scripts", required: false)
 

@@ -3,4 +3,34 @@
 }
 <h1>@ViewData["Title"]</h1>
 
+
 <p>Use this page to detail your site's privacy policy.</p>
+<div class="text-center" ng-controller="itemController">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <div>
+        <label>Name:</label>
+        <input type="text" ng-model="yourName" placeholder="Enter a name here">
+        <hr>
+        <h1>Received {{yourName}}!</h1>
+    </div>
+
+    <button ng-click="myFunction()">clears</button>
+
+
+
+</div>
+
+<script>
+    app.controller("itemController", function ($scope, $http, MyService2, MyService, SomeService1) {
+        $scope.yourName = "xxx";
+        //$http.get('data/data.json').then(function (prd) {
+        //    $scope.prd = prd.data;
+        //});
+        $scope.myFunction = function () {
+            SomeService1.someFunction();
+            $scope.yourName = MyService2.getValue();
+        };
+    });
+</script>

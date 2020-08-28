@@ -1,9 +1,9 @@
-﻿var app = angular.module('myApp', []);
+﻿
 app = app
     .factory('MyService', function () {
 
         // private
-        let value = 0;
+        var value = 0;
 
         // public
         return {
@@ -22,7 +22,7 @@ app = app
     .factory('MyService2', function () {
 
         // private
-        let value = 0;
+        var value = 0;
 
         // public
         return {
@@ -40,7 +40,7 @@ app = app
 
 app = app.service('SomeService', function ($http) {
     this.someFunction = function () {
-        $http.get('api/values').then(function (data) {
+        $http.get('https://localhost:5001/api/values').then(function (data) {
             console.log("data response 1 => ", data);
         });
         console.log("some function 1 is debug");
@@ -49,7 +49,7 @@ app = app.service('SomeService', function ($http) {
 
 app = app.service('SomeService1', function ($http) {
     this.someFunction = function () {
-        $http.get('api/values').then(function (data) {
+        $http.get('https://localhost:5001/api/values').then(function (data) {
             console.log("data response 2 => ", data);
         });
         console.log("some function 2 is debug");

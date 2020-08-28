@@ -26,7 +26,9 @@
 
 
         </div>
-
+        <br />
+        <b>----------------------------</b>
+        <br />
         <div class="text-center" ng-controller="itemController">
             <h1 class="display-4">Welcome</h1>
             <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
@@ -43,13 +45,13 @@
 
 
         </div>
+
     </div>
 
 
 
 
-</div>
-<script src="~/js/Services/MyService.js" asp-append-version="true"></script>
+</div> 
 <script>
 
     app.controller("personController", function ($scope, $http, MyService2, MyService, SomeService) {
@@ -62,6 +64,7 @@
             MyService2.setValue($scope.yourName);
         };
     });
+
 
     app.controller("itemController", function ($scope, $http, MyService2, MyService, SomeService1) {
         $scope.yourName = "xxx";

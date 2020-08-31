@@ -86,7 +86,46 @@ namespace FirstCodeDb
             await context.AddRangeAsync(addList);
 
             await context.SaveChangesAsync();
+            await SeedMaster(context);
+        }
 
+
+        private static async Task SeedMaster(FCDbContext context)
+        {
+            var masterSeed = new List<Master>
+                    {
+                        new Master
+                        {
+                            Id = 1,
+                            Key = "MS1",
+                            Value = "wweee1",
+                            TaxonomyId = 1
+                        },
+                        new Master
+                        {
+                            Id = 2,
+                            Key = "MS2",
+                            Value = "qqrrr2",
+                            TaxonomyId = 2,
+                        },
+                        new Master
+                        {
+                            Id = 3,
+                            Key = "DC3",
+                            Value = "zzcc3",
+                            TaxonomyId = 3,
+                        },
+                    };
+            var masterData = await context.Master.ToListAsync();
+            var removeList = masterData.Where(w => !masterSeed.Contains(w)).ToList();
+            if (removeList.Any())
+            {
+                context.RemoveRange(removeList);
+            }
+            var addList = masterSeed.Where(w => !masterData.Contains(w)).ToList();
+            await context.AddRangeAsync(addList);
+
+            await context.SaveChangesAsync();
         }
     }
 }

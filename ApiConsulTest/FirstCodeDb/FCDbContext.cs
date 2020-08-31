@@ -28,12 +28,23 @@ namespace FirstCodeDb
 
 
         public virtual DbSet<Taxonomy> Taxonomy { get; set; }
+        public virtual DbSet<Master> Master { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Taxonomy>()
-                .ToTable("taxonomy");
+                .ToTable("taxonomy") 
+                .HasMany(o => o.Masters)
+                .WithOne(o=> o.Taxonomy)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Master>()
+             .ToTable("master")
+             .HasOne(o => o.Taxonomy)
+             .WithMany(o => o.Masters)
+             .OnDelete(DeleteBehavior.SetNull);
+            
 
             //modelBuilder.Entity<Taxonomy>().HasData(
             //    new Taxonomy() { Id = 1, Key = "FPTV", Value = "Test 1" });

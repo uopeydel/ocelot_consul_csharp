@@ -46,7 +46,7 @@ namespace FirstCodeDb
             {
                 app.UseDeveloperExceptionPage();
             }
-            db.Database.Migrate();
+            //db.Database.Migrate();
 
             app.UseHttpsRedirection();
 

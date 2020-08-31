@@ -7,20 +7,16 @@ using System.Threading.Tasks;
 
 namespace FirstCodeDb
 {
-    public class Taxonomy
+    public class Master
     {
-        public Taxonomy()
-        {
-            Masters = new HashSet<Master>();
-        }
-
         [Key] 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
         public string Key { get; set; }
         public string Value { get; set; }
 
+        public int? TaxonomyId { get; set; }
+        public Taxonomy Taxonomy { get; set; }
 
-        public ICollection<Master> Masters { get; set; }
     }
 }

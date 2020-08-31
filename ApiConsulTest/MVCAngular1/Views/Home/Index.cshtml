@@ -11,39 +11,25 @@
     <div>
 
         <div class="text-center" ng-controller="personController">
-            <h1 class="display-4">Welcome</h1>
-            <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-
             <div>
                 <label>Name:</label>
                 <input type="text" ng-model="yourName" placeholder="Enter a name here">
                 <hr>
                 <h1>Send {{yourName}}!</h1>
             </div>
-
-            <button ng-click="myFunction()">clears</button>
-
-
-
+            <button ng-click="myFunction()">send</button>
         </div>
         <br />
         <b>----------------------------</b>
         <br />
         <div class="text-center" ng-controller="itemController">
-            <h1 class="display-4">Welcome</h1>
-            <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-
             <div>
                 <label>Name:</label>
                 <input type="text" ng-model="yourName" placeholder="Enter a name here">
                 <hr>
                 <h1>Received {{yourName}}!</h1>
             </div>
-
-            <button ng-click="myFunction()">clears</button>
-
-
-
+            <button ng-click="myFunction()">get</button>
         </div>
 
     </div>
@@ -51,11 +37,13 @@
 
 
 
-</div> 
+</div>
+
+
 <script>
 
     app.controller("personController", function ($scope, $http, MyService2, MyService, SomeService) {
-        $scope.yourName = "xxx";
+        $scope.yourName = "abc1";
         //$http.get('data/data.json').then(function (prd) {
         //    $scope.prd = prd.data;
         //});
@@ -67,7 +55,7 @@
 
 
     app.controller("itemController", function ($scope, $http, MyService2, MyService, SomeService1) {
-        $scope.yourName = "xxx";
+        $scope.yourName = "def2";
         //$http.get('data/data.json').then(function (prd) {
         //    $scope.prd = prd.data;
         //});

@@ -16,7 +16,7 @@
         <h1>Received {{yourName}}!</h1>
     </div>
 
-    <button ng-click="myFunction()">clears</button>
+    <button ng-click="myFunction()">set</button>
 
 
 
@@ -24,7 +24,7 @@
 
 <script>
     app.controller("itemController", function ($scope, $http, MyService2, MyService, SomeService1) {
-        $scope.yourName = "xxx";
+        $scope.yourName = "abc";
         //$http.get('data/data.json').then(function (prd) {
         //    $scope.prd = prd.data;
         //});

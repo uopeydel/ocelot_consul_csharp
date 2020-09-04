@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer.Infrastructure.Internal;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace FirstCodeDb
@@ -19,7 +21,7 @@ namespace FirstCodeDb
         //{
         //    _connectionString = connectionString;
         //}
-
+        public static readonly ILoggerFactory loggerFactory = LoggerFactory.Create(b => { b.AddConsole(); });
         public FCDbContext(IServiceProvider serviceProvider)
         {
             var options = serviceProvider.GetRequiredService<DbContextOptions<FCDbContext>>();
@@ -33,23 +35,17 @@ namespace FirstCodeDb
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Taxonomy>()
-                .ToTable("taxonomy") 
-                .HasMany(o => o.Masters)
-                .WithOne(o=> o.Taxonomy)
-                .OnDelete(DeleteBehavior.SetNull);
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+           
 
-            modelBuilder.Entity<Master>()
-             .ToTable("master")
-             .HasOne(o => o.Taxonomy)
-             .WithMany(o => o.Masters)
-             .OnDelete(DeleteBehavior.SetNull);
+           
             
 
             //modelBuilder.Entity<Taxonomy>().HasData(
             //    new Taxonomy() { Id = 1, Key = "FPTV", Value = "Test 1" });
 
-            base.OnModelCreating(modelBuilder);
+            //base.OnModelCreating(modelBuilder);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -58,7 +54,11 @@ namespace FirstCodeDb
             {
                 return;
             }
-            optionsBuilder.UseSqlServer(_connectionString);
+            optionsBuilder
+#if DEBUG
+                .UseLoggerFactory(loggerFactory)
+#endif
+                .UseSqlServer(_connectionString);
         }
     }
 }

@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using FirstCodeDb.Service;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,10 +30,17 @@ namespace FirstCodeDb
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers()
+                .AddFluentValidation(f=> {
+                    f.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+                    f.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
+                    f.ImplicitlyValidateChildProperties = true;
+                });
 
             services.AddDbContext<FCDbContext>(options =>
                options.UseSqlServer(Configuration["ConnectionStrings:FCDbContext"]));
+
+            services.AddTransient<IDateTimeService, DateTimeService>();
             //services.AddMvc()
             //   .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
             //    .AddJsonOptions(options =>

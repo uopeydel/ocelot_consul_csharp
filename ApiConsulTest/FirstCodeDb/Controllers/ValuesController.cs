@@ -32,6 +32,7 @@ namespace FirstCodeDb.Controllers
         [Route("AddTaxonomy")]
         public async Task<IActionResult> AddTaxonomy(Taxonomy taxonomy)
         {
+            return Ok(taxonomy);
             await _dbContext.Taxonomy.AddAsync(taxonomy); await _dbContext.SaveChangesAsync();
 
             return Ok();

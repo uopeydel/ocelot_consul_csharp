@@ -50,6 +50,7 @@
         $scope.myFunction = function () {
             SomeService.someFunction();
             MyService2.setValue($scope.yourName);
+            console.log("setname", $scope.yourName);
         };
     });
 

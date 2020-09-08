@@ -19,7 +19,7 @@ app = app
     });
 
 app = app
-    .factory('MyService2', function () {
+    .factory('MyService2', function ( $rootScope) {
 
         // private
         var value = 0;
@@ -28,10 +28,13 @@ app = app
         return {
 
             getValue: function () {
-                return value + "x";
+                
+                //return value + "x";
+                return $rootScope.MyService2Value;
             },
 
             setValue: function (val) {
+                $rootScope.MyService2Value = val;
                 value = val;
             }
 

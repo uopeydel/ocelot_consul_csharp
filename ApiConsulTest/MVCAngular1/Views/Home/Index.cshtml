@@ -54,7 +54,7 @@
     });
 
 
-    app.controller("itemController", function ($scope, $http, MyService2, MyService, SomeService1) {
+    app.controller("itemController", function ($scope, $http, MyService2, MyService, SomeService1, testdatetime) {
         $scope.yourName = "def2";
         //$http.get('data/data.json').then(function (prd) {
         //    $scope.prd = prd.data;
@@ -62,6 +62,7 @@
         $scope.myFunction = function () {
             SomeService1.someFunction();
             $scope.yourName = MyService2.getValue();
+            testdatetime.someFunction();
         };
     });
 

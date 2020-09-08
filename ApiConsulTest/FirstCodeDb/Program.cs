@@ -15,7 +15,9 @@ namespace FirstCodeDb
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Seeded().Run();
+            CreateHostBuilder(args).Build()
+                .Seeded()
+                .Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args)
@@ -111,7 +113,7 @@ namespace FirstCodeDb
                         new Master
                         {
                             Id = 3,
-                            Key = "DC3",
+                            Key = "MS3",
                             Value = "zzcc3",
                             TaxonomyId = 3,
                         },

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FirstCodeDb
 {
-    public class Master
+    public class Master : BaseModel
     {
         [Key] 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FirstCodeDb
 {
-    public class Taxonomy
+    public class Taxonomy : BaseModel
     {
         public Taxonomy()
         {

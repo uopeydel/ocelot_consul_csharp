@@ -55,3 +55,27 @@ app = app.service('SomeService1', function ($http) {
         console.log("some function 2 is debug");
     };
 });
+
+app = app.service('testdatetime', function ($http) {
+    //var date = Date(Date.now());
+    var newDate = (new Date()).toISOString();
+    var newDate2 = (new Date()).toLocaleString('th-TH', { timeZone: 'Asia/Bangkok' });
+    console.log(newDate);
+    this.someFunction = function () {
+        var req = {
+            method: 'POST',
+            url: 'https://localhost:5001/api/values/testdatetime',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: { Datetimeformat: newDate2, Stringformat: newDate  }
+        }
+
+
+        $http(req)
+            .then(function (data) {
+                console.log("test date time => ", data);
+            });
+        console.log("test date time is debug");
+    };
+});

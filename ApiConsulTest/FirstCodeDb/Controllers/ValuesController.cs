@@ -12,7 +12,7 @@ namespace FirstCodeDb.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private readonly FCDbContext _dbContext;
+        private readonly IFCDBContext _dbContext;
         public ValuesController(FCDbContext dbContext)
         {
             _dbContext = dbContext;

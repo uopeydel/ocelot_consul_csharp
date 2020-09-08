@@ -41,6 +41,7 @@ namespace FirstCodeDb
                options.UseSqlServer(Configuration["ConnectionStrings:FCDbContext"]));
 
             services.AddTransient<IDateTimeService, DateTimeService>();
+            services.AddScoped<IFCDBContext, FCDbContext>();
             //services.AddMvc()
             //   .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
             //    .AddJsonOptions(options =>
